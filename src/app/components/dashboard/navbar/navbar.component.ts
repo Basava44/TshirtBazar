@@ -17,7 +17,7 @@ import { environment } from '../../../../environments/environment';
 export class NavbarComponent implements OnInit {
 
   localCurrency = '₹';
-  logoImgPath = '../../../../assets/images/Logo-India(2x).png'
+  logoImgPath = 'assets/images/Logo-India(2x).png'
 
   constructor(
     public dialog: MatDialog,
