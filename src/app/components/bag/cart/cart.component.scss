@@ -1,0 +1,204 @@
+@import "../../../../assets/globalTheme";
+
+.noItems {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  img {
+    max-width: 100%;
+  }
+  .link {
+    margin: 10px 20px;
+    font-size: 20px;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h4 {
+      cursor: pointer;
+      color: $hover-link;
+      font-weight: 500;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .label {
+    .products {
+      width: fit-content;
+      margin: 10px;
+      padding: 10px 20px;
+    }
+    .product {
+      display: flex;
+      width: fit-content;
+      margin: 10px 0;
+      max-width: 418px;
+      min-width: 418px;
+      &:hover {
+        box-shadow: $box-shadow;
+        cursor: pointer;
+      }
+      .image {
+        img {
+          height: 120px;
+        }
+      }
+      .details {
+        padding: 0px 20px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        .title {
+          font-size: 14px;
+          font-weight: bold;
+          color: $primary-color;
+        }
+        .rating {
+          padding: 10px 0;
+          font-weight: 500;
+          .value {
+            color: gold;
+            padding: 1px 10px;
+            text-align: center;
+            font-size: 12px;
+            background-color: rgb(67, 192, 67);
+            border-radius: 16px;
+          }
+        }
+        .selectSize {
+          select {
+            border: none;
+            border-bottom: 1px solid black;
+            letter-spacing: 1px;
+            cursor: pointer;
+          }
+        }
+        .remove {
+          margin-top: 4px;
+          &:hover {
+            color: $discount-color;
+            font-weight: bold;
+            cursor: pointer;
+          }
+        }
+      }
+      .price {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 20px;
+        font-weight: bold;
+        color: $primary-color;
+      }
+    }
+    form.ng-invalid {
+      .content__button {
+        cursor: not-allowed;
+      }
+    }
+    .totalCost {
+      text-align: right;
+      padding: 20px;
+      .label {
+        color: #9c9c9c;
+        font-size: 16px;
+      }
+      .action {
+        padding: 15px 10px;
+        color: $primary-color;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+  }
+  .action {
+    width: 50%;
+    .shippingDetails {
+      margin: 10px;
+      padding: 10px 20px;
+      mat-form-field {
+        display: block;
+        &:focus {
+          border-color: $discount-color;
+        }
+      }
+    }
+    button {
+      width: 100%;
+    }
+    form.invalid {
+      button {
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.imageDisplay {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.603);
+  .sizeimage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    img {
+      width: 100%;
+    }
+    .close {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      font-size: 30px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    .label {
+      .product {
+        max-width: 380px;
+        min-width: 380px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    .label {
+      margin: 0 auto;
+      .product {
+        max-width: 350px;
+        min-width: 350px;
+      }
+    }
+    .action {
+      width: 100%;
+    }
+  }
+}

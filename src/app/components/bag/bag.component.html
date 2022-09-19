@@ -1,0 +1,18 @@
+<div class="navTop">
+  <nav class="navbar">
+    <img
+      [src]="config.logoImgPath"
+      alt=""
+      routerLink="/dashboard"
+    />
+    <div class="action">
+      <span class="wishlist" routerLink="/bag/wishlist" routerLinkActive="active-link">
+        <i class="material-icons">favorite</i>&nbsp;Wishlist
+      </span>
+      <span class="cart" routerLink="/bag/cart" routerLinkActive="active-link">
+        <span class="material-icons">shopping_cart</span>&nbsp;Cart
+      </span>
+    </div>
+  </nav>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,70 @@
+@import '../../../../assets/globalTheme';
+
+.productContainer {
+  width: 220px;
+  height: 420px;
+  margin: 10px 0;
+  position: relative;
+  &:hover {
+    cursor: pointer;
+    box-shadow: $box-shadow;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  .productName {
+    color: $primary-color;
+    font-weight: 500;
+    margin: 10px 0;
+  }
+  img {
+    width: 180px;
+    height: 200px;
+  }
+  button {
+    width: 100%;
+    margin: 4px 0;
+  }
+  button.cart {
+    border-color: $buy-button-color;
+    color: $buy-button-color;
+  }
+  .price {
+    font-weight: bold;
+    margin: 10px 0;
+    color: $primary-color;
+    font-size: 16px;
+  }
+
+  .discount {
+    color: $discount-color;
+    margin-left: 5px;
+    font-size: 12px;
+    text-decoration: line-through;
+  }
+  .badge {
+    background-color: $discount-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $regular-white;
+    padding: 2px 4px;
+    padding-right: 6px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .favorite {
+    color: $light-pink;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .productContainer {
+    width: 190px;
+    img {
+      width: 160px;
+      height: 200px;
+    }
+  }
+}

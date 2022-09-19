@@ -1,0 +1,128 @@
+<div class="noItems" *ngIf="products.length === 0">
+  <img src="../../../../assets/images/empty-cart.png" alt="" />
+  <h1>No Items, add some items into the Cart</h1>
+  <span class="link" routerLink="/dashboard">Dashboard</span>
+  <span class="link" routerLink="/bag/wishlist">Wishlist</span>
+</div>
+
+<div class="container" *ngIf="products.length > 0">
+  <div class="label">
+    <mat-card class="products">
+      <div class="head">
+        <h2>Your Products:</h2>
+        <h4 (click)="openSizeChart()">Size Chart</h4>
+      </div>
+      <mat-card *ngFor="let product of products" class="product">
+        <div class="image">
+          <img src="{{ product.img }}" alt="" (click)="goToProduct(product.id)" />
+        </div>
+        <div class="details">
+          <div class="title">
+            <span>{{ product.name }}</span>
+            <br />
+            <span>{{ product.type }}</span>
+          </div>
+          <div class="rating">
+            Rating:
+            <span class="value">{{ product.rating }}</span>
+          </div>
+          <div class="selectSize">
+            <label for="size">Select Size: </label>
+            <select
+              name="size"
+              class="size"
+              #size
+              (click)="sizeSelect(size.value, product.id)"
+            >
+              <option value="-">---</option>
+              <option
+                *ngFor="let i of product.size"
+                value="{{ i.type }}"
+                [disabled]="i.stock === 0"
+              >
+                {{ i.type }}
+              </option>
+            </select>
+          </div>
+          <div class="remove" (click)="removeFromCart(product)">Remove</div>
+        </div>
+        <div class="price" *ngIf="product.discountedPrice === 0">
+          {{ product.actualPrice | currency:config.localCurrency }}
+        </div>
+        <div class="price" *ngIf="product.discountedPrice > 0">
+          {{ product.discountedPrice | currency:config.localCurrency }}
+        </div>
+      </mat-card>
+      <div class="totalCost">
+        <span class="label">Total Amount: </span>
+        <span class="action">{{ totalAmount | currency:config.localCurrency }}</span>
+      </div>
+    </mat-card>
+  </div>
+  <div class="action">
+    <mat-card class="shippingDetails">
+      <h2>Shipping Details:</h2>
+      <form
+        [formGroup]="shippingForm"
+        (ngSubmit)="placeOrder()"
+        class="details"
+        autocomplete="off"
+        #form="ngForm"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" type="text" matInput required />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Mobile Number</mat-label>
+          <input
+            formControlName="mobileNumber"
+            type="number"
+            matInput
+            required
+            minlength="10"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" type="email" matInput required />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Address</mat-label>
+          <textarea
+            formControlName="address"
+            matInput
+            required
+            rows="6"
+          ></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Pincode</mat-label>
+          <input
+            formControlName="pincode"
+            type="number"
+            matInput
+            required
+            minlength="6"
+          />
+        </mat-form-field>
+        <button
+          class="oredrButton"
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!form.valid"
+        >
+          Place Order
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>
+
+<div class="imageDisplay" *ngIf="showSizeChart">
+  <div class="sizeimage">
+    <img [src]="sizeChartSrc" />
+    <button class="close" (click)="closeSizeChart()">&times;</button>
+  </div>
+</div>

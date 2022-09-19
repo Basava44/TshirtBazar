@@ -1,0 +1,9 @@
+<app-filter *ngIf="products.length > 0"></app-filter>
+
+<div class="container" *ngIf="products.length > 0">
+  <individual-product *ngFor="let product of products" [item]="product"></individual-product>
+</div>
+
+<div class="noItems" *ngIf="products.length === 0">
+  <h1>Products under this Category are Currently Out of Stock</h1>
+</div>

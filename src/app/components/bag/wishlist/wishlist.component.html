@@ -1,0 +1,34 @@
+<div class="noItems" *ngIf="products.length === 0">
+  <img src="../../../../assets/images/empty-cart.png" alt="" />
+  <h1>No Items, Have a look into Products Page</h1>
+  <span class="link" routerLink="/dashboard">Dashboard</span>
+  <span class="link" routerLink="/bag/cart">Cart</span>
+</div>
+
+<div class="container" *ngIf="products.length > 0">
+  <mat-card class="productContainer" *ngFor="let item of products">
+    <img src="{{ item.img }}" alt="image" />
+    <p class="productName">{{ item.name }} {{ item.type }}</p>
+    <p class="price">
+      <span class="currency discountedPrice" *ngIf="item.discountedPrice">{{
+        item.discountedPrice | currency:config.localCurrency
+      }}</span>
+      <span
+        class="currency actualPrice"
+        [ngClass]="item.discountedPrice ? 'discount' : ''"
+        >{{ item.actualPrice | currency:config.localCurrency }}</span
+      >
+    </p>
+    <button mat-stroked-button class="cart" *ngIf="!item.cart" (click)="addToCart(item.id)">
+      Add to Cart
+      <span class="material-icons">shopping_cart</span>
+    </button>
+    <button mat-stroked-button class="cart" *ngIf="item.cart" (click)='goToCart()'>
+      Go to Cart
+      <span class="material-icons">shopping_cart</span>
+    </button>
+    <button mat-stroked-button class="wishlist" (click)="removeFromWishlist(item)">
+      Remove
+    </button>
+  </mat-card>
+</div>

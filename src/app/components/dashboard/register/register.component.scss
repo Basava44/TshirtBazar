@@ -1,0 +1,45 @@
+.loginContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  &__title {
+    position: absolute;
+    top: 10px;
+  }
+}
+
+.content {
+  background-color: white;
+  border: 1px solid #3f51b5;
+  border-radius: 4px;
+  padding: 50px;
+  padding-top: 70px;
+  display: flex;
+  justify-content: center;
+  &__input {
+    width: 300px;
+  }
+  &__button {
+    width: 300px;
+  }
+  form.invalid {
+    button {
+      cursor: not-allowed;
+    }
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .content {
+    padding: 30px;
+    padding-top: 50px;
+    &__input {
+      width: 250px;
+    }
+
+    &__button {
+      width: 250px;
+    }
+  }
+}

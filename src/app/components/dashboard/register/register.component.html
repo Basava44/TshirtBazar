@@ -1,0 +1,43 @@
+<div class="loginContainer">
+  <div class="loginContainer__loginBox">
+    <div class="loginContainer__box1">
+      <mat-card class="content">
+        <h2 class="loginContainer__title">Welcome</h2>
+        <form [formGroup]="signUpForm" (ngSubmit)="signUp()" #form="ngForm">
+          <div class="content__email">
+            <mat-form-field class="content__input" appearance="outline">
+              <mat-label> Email </mat-label>
+              <input formControlName="email" matInput required />
+            </mat-form-field>
+          </div>
+
+          <div class="content__password">
+            <mat-form-field class="content__input" appearance="outline">
+              <mat-label>Create Password</mat-label>
+              <input
+                formControlName="password"
+                matInput
+                type="password"
+                required
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="content__inputDetails">
+            <button
+              class="content__button"
+              mat-raised-button
+              color="primary"
+              mat-dialog-close
+              type="submit"
+              (click)="signUp()"
+              [disabled]="!form.valid"
+            >
+              Signup
+            </button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

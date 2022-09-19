@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="label">
+    <img [src]="product.img" alt="" />
+  </div>
+  <div class="action">
+    <div class="title">{{ product.name }}</div>
+    <div class="subTitle">{{ product.type }}</div>
+    <div class="rating">
+      Rating - <span class="badge">{{ product.rating }}</span>
+    </div>
+    <span class="sizeTitle">Available Sizes:</span>
+    <div class="sizes">
+      <button
+        class="sizeButton"
+        *ngFor="let size of product.size"
+        (click)="getStock(size)"
+        [disabled]="size.stock === 0"
+        [ngClass]="size.stock > 0 ? '' : 'outofstock'"
+      >
+        {{ size.type }}
+      </button>
+    </div>
+    <div class="stock">{{ stock }}</div>
+    <div class="deliveryDate"></div>
+    <h4 class="sizechart" (click)="openSizeChart()">Size Chart</h4>
+    <hr />
+    <div class="price">
+      <span class="currency discountedPrice" *ngIf="product.discountedPrice">{{
+        product.discountedPrice | currency:config.localCurrency
+      }}</span>
+      <span
+        class="currency actualPrice"
+        [ngClass]="product.discountedPrice ? 'discount' : ''"
+        >{{ product.actualPrice | currency:config.localCurrency }}</span
+      >
+      <span class="offer" *ngIf="getDiscount(product)">
+        ({{ getDiscount(product) }}% off)
+      </span>
+    </div>
+    <hr />
+    <div class="bag">
+      <button
+        mat-stroked-button
+        class="wishList"
+        *ngIf="!product.wishlist"
+        (click)="addToWishlist()"
+      >
+        Add to Wishlist
+        <span class="material-icons favorite_border">favorite_border</span>
+      </button>
+      <button
+        mat-stroked-button
+        class="wishList"
+        *ngIf="product.wishlist"
+        (click)="goToWishlist()"
+      >
+        Go to Wishlist
+        <span class="material-icons favorite">favorite</span>
+      </button>
+      <button
+        mat-stroked-button
+        class="cart"
+        *ngIf="!product.cart"
+        (click)="addToCart()"
+      >
+        Add to Cart
+        <span class="material-icons">shopping_cart</span>
+      </button>
+      <button
+        mat-stroked-button
+        class="cart"
+        *ngIf="product.cart"
+        (click)="goToCart()"
+      >
+        Go to Cart
+        <span class="material-icons">shopping_cart</span>
+      </button>
+    </div>
+    <div class="soldBy">
+      Sold By - <span class="seller">Mark Zuckerburg</span>
+      <div class="contact">
+        contact Seller -
+        <span class="seller">+91 9999999999</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="imageDisplay" *ngIf="showSizeChart">
+  <div class="sizeimage">
+    <img [src]="sizeChartSrc" />
+    <button class="close" (click)="closeSizeChart()">&times;</button>
+  </div>
+</div>

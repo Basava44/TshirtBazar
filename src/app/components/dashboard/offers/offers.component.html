@@ -1,0 +1,14 @@
+<app-filter
+  *ngIf="products.length > 0"
+  (filterValues)="filterValues($event)"
+></app-filter>
+<div class="container" *ngIf="products.length > 0">
+  <individual-product
+    *ngFor="let product of products | filter: sortValue:price"
+    [item]="product"
+  ></individual-product>
+</div>
+
+<div class="noItems" *ngIf="products.length === 0">
+  <h1>As of Now There is no Offer going on</h1>
+</div>

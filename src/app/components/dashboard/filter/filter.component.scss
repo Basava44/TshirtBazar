@@ -1,0 +1,53 @@
+@import '../../../../assets/globalTheme';
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 20px;
+  .filterType {
+    margin: 10px 20px;
+    cursor: pointer;
+  }
+  .selectedValue {
+    color: $primary-color;
+    margin-left: -10px;
+  }
+  .slider {
+    margin: 0 10px;
+  }
+}
+
+.mat-radio-button {
+  margin: 5px;
+}
+
+.mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+  height: 45px;
+}
+
+.mat-expansion-panel-header {
+  height: 60px;
+}
+
+.mat-expansion-panel-body {
+  padding: 0 24px 0;
+}
+
+.mat-expansion-panel-header-title {
+  flex: none;
+}
+
+.mat-standard-chip {
+  border-radius: none;
+}
+
+.mat-chip.mat-standard-chip {
+  background-color: transparent;
+  margin: 0;
+}

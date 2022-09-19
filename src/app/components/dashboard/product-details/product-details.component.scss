@@ -1,0 +1,193 @@
+@import "../../../../assets/globalTheme";
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  .label {
+    background-color: transparent;
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      max-width: 420px;
+      max-height: 520px;
+      min-width: 400px;
+      min-height: 400px;
+    }
+  }
+  .action {
+    background-color: $regular-white;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 570px;
+    .title {
+      font-size: 20px;
+      color: #9c9c9c;
+      padding: 10px 0;
+    }
+    .subTitle {
+      font-size: 24px;
+      color: $primary-color;
+      font-weight: 550;
+      padding: 10px 0;
+    }
+    .rating {
+      padding: 10px 0;
+      font-size: 16px;
+      color: #9c9c9c;
+    }
+    .sizeTitle {
+      font-weight: 400;
+      font-size: 16px;
+    }
+    .sizes {
+      display: flex;
+      justify-content: flex-start;
+      padding: 10px 0;
+      padding-bottom: 30px;
+      .sizeButton {
+        width: 40px;
+        height: 40px;
+        margin: 0 10px;
+        background-color: $regular-white;
+        border: 1px solid black;
+        border-radius: 50%;
+        font-weight: bold;
+        cursor: pointer;
+        &:focus {
+          background-color: $buy-button-color;
+          color: $regular-white;
+          font-weight: bold;
+          box-shadow: $box-shadow;
+        }
+      }
+      .outofstock {
+        cursor: not-allowed;
+        border-color: #9c9c9c;
+      }
+    }
+    .stock {
+      color: #9c9c9c;
+      padding-left: 14px;
+      margin-top: -15px;
+    }
+    .sizechart:hover {
+      color: $hover-link;
+      cursor: pointer;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    .bag {
+      display: flex;
+      flex-direction: column;
+      padding: 30px 0;
+      button {
+        margin: 5px 10px;
+      }
+      button.cart {
+        border-color: $buy-button-color;
+        color: $buy-button-color;
+      }
+      .favorite {
+        color: $light-pink;
+      }
+    }
+    .price {
+      padding: 15px;
+      font-weight: bold;
+      margin: 10px 0;
+      color: $primary-color;
+      font-size: 24px;
+    }
+    .discount {
+      color: $discount-color;
+      margin-left: 5px;
+      font-size: 16px;
+      text-decoration: line-through;
+    }
+    .offer {
+      font-size: 14px;
+      color: $discount-color;
+    }
+    .soldBy {
+      font-size: 14px;
+      padding: 0;
+      color: #9c9c9c;
+      .seller {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.imageDisplay {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  .sizeimage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    img {
+      width: 100%;
+    }
+    .close {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      font-size: 30px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .container {
+    flex-direction: column;
+    .label {
+      padding: 10px;
+      img {
+        width: auto;
+        height: 300px;
+      }
+    }
+    .action {
+      .title {
+        font-size: 16px;
+        padding: 5px 0;
+      }
+      .subTitle {
+        font-size: 20px;
+        padding: 5px 0;
+      }
+      .rating {
+        font-size: 14px;
+        padding: 5px 0;
+      }
+      .sizeTitle {
+        font-size: 14px;
+      }
+      .sizes {
+        .sizeButton {
+          width: 30px;
+          height: 30px;
+          font-size: 12px;
+        }
+      }
+      .bag {
+        padding: 10px 0;
+      }
+    }
+  }
+}

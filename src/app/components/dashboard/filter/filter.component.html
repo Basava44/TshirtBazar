@@ -1,0 +1,54 @@
+<div class="container">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="title"> Filters </mat-panel-title>
+        <mat-panel-description>
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let filter of filters" (removed)="remove(filter)">
+            {{ filter }}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+        </mat-chip-list>
+      </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!-- filter Content -->
+      <span class="sort">
+        <span [matMenuTriggerFor]="menu" class="filterType">Sort By:</span>
+        <span class="selectedValue">{{ selectedSort }}</span>
+        <mat-menu #menu="matMenu" xPosition="after">
+          <mat-radio-group class="radio-group" [(ngModel)]="selectedSort">
+            <mat-radio-button
+              class="radio-button"
+              *ngFor="let sortOption of sortOptions"
+              [value]="sortOption"
+              (click)="changeInFilter(sortOption)"
+              (click)="addSortFilter(sortOption)"
+            >
+              {{ sortOption }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </mat-menu>
+      </span>
+      <span class="priceRange">
+        <span class="filterType">Price Range:</span>
+        <span class="selectedValue" *ngIf="priceValue > 0">
+          {{ priceValue | currency: "below &#8377;" }}</span
+        >
+        <span class="slider">
+          <mat-slider
+            max="2000"
+            min="0"
+            step="50"
+            [thumbLabel]="true"
+            [(ngModel)]="priceValue"
+            (click)="changeInFilter(selectedSort)"
+            (click)="addPriceFilter(priceValue)"
+          ></mat-slider>
+        </span>
+      </span>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

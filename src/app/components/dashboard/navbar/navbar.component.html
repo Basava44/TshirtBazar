@@ -1,0 +1,83 @@
+<div class="top">
+  <div class="topNav">
+    <div class="topNav__label">
+      <ul>
+        <li *ngFor="let item of topNav">
+          <a>{{ item }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="topNav__action">
+      <ul>
+        <li
+          class="topNav__action__cart wishlist"
+          *ngIf="loggedIn"
+          routerLink="/bag/wishlist"
+        >
+          <i class="material-icons">favorite_border</i>&nbsp;Wishlist
+          <span class="badge" *ngIf="this.wishlistItems > 0">{{
+            wishlistItems
+          }}</span>
+        </li>
+        <li
+          class="topNav__action__cart"
+          *ngIf="loggedIn"
+          routerLink="/bag/cart"
+        >
+          <span class="material-icons">shopping_cart</span>
+          <span class="amount">{{ cost | currency:config.localCurrency }}</span>
+          <span class="items"
+            >{{ cartItems }} {{ cartItems > 1 ? "items" : "item" }}</span
+          >
+        </li>
+        <li class="topNav__action__login" (click)="login()" *ngIf="!loggedIn">
+          Login
+        </li>
+        <li
+          class="topNav__action__register"
+          (click)="register()"
+          *ngIf="!loggedIn"
+        >
+          Register
+        </li>
+        <li
+          class="topNav__action__register"
+          (click)="logOut()"
+          *ngIf="loggedIn"
+        >
+          Logout
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="navTop">
+  <nav class="navbar">
+    <div class="navbar__label">
+      <div class="logo" routerLink="/dashboard">
+        <img
+          [src]="config.logoImgPath"
+          title="Tshirt Bazar"
+        />
+      </div>
+    </div>
+    <div class="navbar__action " [ngClass]="navOpen?'navOpen':''">
+      <ul id="responsive_navbar">
+        <li
+          *ngFor="let item of navItems"
+          routerLink="/{{ item.path }}"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="navOpen = false"
+        >
+          <a>{{ item.item }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar__menu" (click)="toggleNav()">
+      <span class="material-icons" *ngIf="!navOpen">menu</span>
+      <span class="material-icons" *ngIf="navOpen">close</span>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,144 @@
+@import "../../../../assets/globalTheme";
+
+.top {
+  width: 100%;
+  background-color: $primary-color;
+}
+.navTop {
+  width: 100%;
+  background-color: $regular-white;
+}
+.topNav {
+  max-width: 1024px;
+  margin: 0 auto;
+  color: $regular-white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ul {
+    list-style: none;
+    text-decoration: none;
+    li {
+      margin: 0 15px;
+      cursor: pointer;
+    }
+  }
+  &__label {
+    ul {
+      display: flex;
+      li:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__action {
+    ul {
+      display: flex;
+      align-items: center;
+    }
+    &__cart {
+      display: flex;
+      align-items: center;
+      .material-icons {
+        font-size: 18px;
+      }
+      .amount,
+      .items {
+        font-size: 12px;
+      }
+      .items {
+        color: rgba(255, 255, 255, 0.856);
+      }
+      span {
+        margin: 0 1px;
+      }
+    }
+    &__register {
+      background-color: $regular-white;
+      color: $primary-color;
+      padding: 10px 14px;
+    }
+    .wishlist {
+      position: relative;
+      .badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.navbar {
+  background-color: $regular-white;
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: space-between;
+  &__label {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  &__action {
+    ul {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      text-decoration: none;
+      li {
+        margin: 0 20px;
+        padding: 12px 5px;
+        font-weight: 500;
+        min-width: 50px;
+        cursor: pointer;
+        text-align: center;
+      }
+    }
+  }
+  &__menu {
+    display: none;
+  }
+}
+
+.active-link {
+  color: $primary-color;
+  font-weight: bolder;
+  border-bottom: 4px solid $primary-color;
+}
+
+@media only screen and (max-width: 425px) {
+  .topNav {
+    &__label {
+      display: none;
+    }
+    .wishlist {
+      display: none;
+    }
+
+    justify-content: right;
+  }
+  .navbar {
+    padding: 10px 20px;
+    &__action {
+      display: none;
+    }
+    &__menu {
+      display: block;
+    }
+  }
+  .navOpen {
+    display: inline;
+    z-index: 2;
+    ul {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 100px;
+      background-color: $regular-white;
+      width: 100%;
+    }
+  }
+}

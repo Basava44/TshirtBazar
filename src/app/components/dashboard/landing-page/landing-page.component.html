@@ -1,0 +1,27 @@
+<img src="../../../../assets/images/winterWear.jpg" alt="" class="image" />
+<div class="container">
+  <app-posters></app-posters>
+  <div class="topPicks">
+    <h2 class="title">Top Picks</h2>
+    <div class="products">
+      <individual-product *ngFor = "let item of topPicks" [item]="item"></individual-product>
+    </div>
+  </div>
+</div>
+<div class="query">
+  <div class="query__label">
+    <div class="logo">
+      <span class="material-icons">mail</span>
+    </div>
+    <div class="info">
+      <span class="top">LOOKING FOR HELP?</span><br />
+      <span class="bottom"
+        >Have any queries or need help with order? Let us Know!</span
+      >
+    </div>
+  </div>
+  <div class="query__action">
+    <button mat-flat-button (click)="openQuery()">MAKE AN INQUIRY</button>
+  </div>
+</div>
+<app-footer></app-footer>

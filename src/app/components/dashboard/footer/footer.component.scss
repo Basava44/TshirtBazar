@@ -1,0 +1,139 @@
+@import "../../../../assets/globalTheme";
+
+.container {
+  width: 100%;
+  background-color: $secondary-color;
+  hr {
+    border-color: rgba(255, 255, 255, 0.726);
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+}
+.footer {
+  max-width: 1024px;
+  box-sizing: border-box;
+  color: $regular-white;
+  display: flex;
+  padding: 20px;
+  padding-left: 40px;
+  margin: 0 auto;
+  &__action,
+  &__label {
+    display: flex;
+  }
+  &__item {
+    margin: 0 30px;
+    &__title {
+      color: $regular-white;
+      font-size: 12px;
+      font-family: opensans-bold;
+      margin-bottom: 9px;
+    }
+    &__items {
+      line-height: 2;
+      font-size: 13px;
+      font-weight: 500;
+      color: $regular-white;
+      font-weight: 400;
+      text-align: left;
+      font-size: 12px;
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+  &__action {
+    .footer__item__items:hover {
+      text-decoration: none;
+      cursor: auto;
+    }
+  }
+}
+
+.footer-top {
+  max-width: 1024px;
+  margin: 0 auto;
+  color: $regular-white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  flex-wrap: wrap;
+  .card {
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    .material-icons {
+      font-size: 30px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+.footer-bottom {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  color: $regular-white;
+  align-items: center;
+  .left {
+    cursor: pointer;
+  }
+  .middle {
+    font-weight: 400;
+    cursor: pointer;
+  }
+  .right {
+    .fa {
+      margin: 0 5px;
+      font-size: 16px;
+      cursor: pointer;
+      &:hover {
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 765px) {
+  .footer {
+    padding: 10px;
+    hr {
+      display: none;
+    }
+    &__action {
+      display: none;
+    }
+    &__label {
+      display: inline-flex;
+    }
+    &__item {
+      margin: 10px;
+      padding: 0;
+    }
+  }
+
+  .footer-top {
+    .card {
+      width: 100px;
+      text-align: center;
+      .material-icons {
+        font-size: 20px;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .footer-bottom {
+    .middle {
+      display: none;
+    }
+  }
+}

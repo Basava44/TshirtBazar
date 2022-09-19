@@ -1,0 +1,16 @@
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.noItems {
+  text-align: center;
+  margin: 20px;
+}
+
+.less{
+  justify-content: start;
+}

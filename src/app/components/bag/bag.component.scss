@@ -1,0 +1,50 @@
+@import '../../../assets/globalTheme';
+
+.navTop {
+  width: 100%;
+  background-color: $regular-white;
+  padding: 0 20px;
+  .navbar {
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    img {
+      cursor: pointer;
+      height: 36px;
+      width: 74px;
+    }
+    .action {
+      display: flex;
+      .wishlist,
+      .cart {
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+        color: $primary-color;
+        cursor: pointer;
+        padding: 20px;
+      }
+    }
+    .active-link {
+      background-color: $primary-color;
+      color: $regular-white !important;
+      padding: 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navTop {
+    .navbar {
+      .action {
+        .cart,
+        .wishlist {
+          padding: 15px !important;
+          color: #000;
+        }
+      }
+    }
+  }
+}

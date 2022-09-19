@@ -1,0 +1,48 @@
+<div class="queryContainer">
+  <div class="queryContainer__queryBox">
+    <div class="queryContainer__box1">
+      <mat-card class="content">
+        <h2 class="queryContainer__title">Ask a Query</h2>
+        <form [formGroup]="queryForm" (ngSubmit)="submitQuery()" #form="ngForm">
+          <div class="content__name">
+            <mat-form-field class="content__input" appearance="outline">
+              <mat-label> Name </mat-label>
+              <input formControlName="name" type="text" matInput required />
+            </mat-form-field>
+          </div>
+          <div class="content__email">
+            <mat-form-field class="content__input" appearance="outline">
+              <mat-label> Email </mat-label>
+              <input formControlName="email" matInput required />
+            </mat-form-field>
+          </div>
+
+          <div class="content__query">
+            <mat-form-field appearance="outline">
+              <mat-label>Query</mat-label>
+              <textarea
+                formControlName="query"
+                matInput
+                rows="6"
+                required
+              ></textarea>
+            </mat-form-field>
+          </div>
+
+          <div class="content__inputDetails">
+            <button
+              class="content__button"
+              mat-raised-button
+              color="primary"
+              mat-dialog-close
+              type="submit"
+              [disabled]="!form.valid"
+            >
+              Submit Query
+            </button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

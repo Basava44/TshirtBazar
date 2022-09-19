@@ -1,0 +1,36 @@
+<mat-card class="productContainer">
+  <span class="badge" *ngIf="getDiscount(item)">-{{ getDiscount(item) }}%</span>
+  <img src="{{ item.img }}" alt="image" (click)="openProduct(item.id)"/>
+  <p class="productName">{{ item.name }} {{ item.type }}</p>
+  <p class="price">
+    <span class="currency discountedPrice" *ngIf="item.discountedPrice">{{
+      item.discountedPrice | currency:config.localCurrency
+    }}</span>
+    <span
+      class="currency actualPrice"
+      [ngClass]="item.discountedPrice ? 'discount' : ''"
+      >{{ item.actualPrice | currency:config.localCurrency }}</span
+    >
+  </p>
+  <button
+    mat-stroked-button
+    class="wishList"
+    *ngIf="!item.wishlist"
+    (click)="addToWishlist()"
+  >
+    Add to Wishlist
+    <span class="material-icons favorite_border">favorite_border</span>
+  </button>
+  <button
+    mat-stroked-button
+    class="wishList"
+    *ngIf="item.wishlist"
+    (click)="goToWishlist()"
+  >
+    Go to Wishlist
+    <span class="material-icons favorite">favorite</span>
+  </button>
+  <button mat-stroked-button class="cart" (click)="openProduct(item.id)">
+    View Product
+  </button>
+</mat-card>

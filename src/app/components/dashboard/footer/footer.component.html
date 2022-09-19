@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="footer-top">
+    <div class="card">
+      <span class="material-icons">local_shipping</span>
+      <p>Free Shipping In {{config.countryName}}</p>
+    </div>
+    <div class="card">
+      <span class="material-icons"> account_balance_wallet </span>
+      <p>Money Back Guarantee</p>
+    </div>
+    <div class="card">
+      <span class="material-icons"> support_agent </span>
+      <p>24/7 Customer Support</p>
+    </div>
+    <div class="card">
+      <span class="material-icons"> monetization_on </span>
+      <p>Lowest Prices Guarented</p>
+    </div>
+    <div class="card">
+      <span class="material-icons"> card_giftcard </span>
+      <p>Exclusive for Sportshold</p>
+    </div>
+    <div class="card">
+      <span class="material-icons"> delivery_dining </span>
+      <p>5-Day Delivery in {{config.countryName}}</p>
+    </div>
+  </div>
+  <hr />
+  <footer class="footer">
+    <div class="footer__label">
+      <div class="footer__item">
+        <div class="footer__item__title">ABOUT</div>
+        <div class="footer__item__items" *ngFor="let item of about">
+          {{ item }}
+        </div>
+      </div>
+      <div class="footer__item">
+        <div class="footer__item__title">HELP</div>
+        <div class="footer__item__items" *ngFor="let item of help">
+          {{ item }}
+        </div>
+      </div>
+      <div class="footer__item">
+        <div class="footer__item__title">SOCIAL</div>
+        <div class="footer__item__items" *ngFor="let item of social">
+          {{ item }}
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="footer__action">
+      <div class="footer__item">
+        <div class="footer__item__title">MAIL US</div>
+        <div class="footer__item__items" *ngFor="let item of mailus">
+          {{ item }}
+        </div>
+      </div>
+      <div class="footer__item">
+        <div class="footer__item__title">Registered Office Address:</div>
+        <div class="footer__item__items" *ngFor="let item of address">
+          {{ item }}
+        </div>
+      </div>
+    </div>
+  </footer>
+  <hr />
+  <div class="footer-bottom">
+    <div class="left">
+      <img src="../../../../assets/images/footerLogo.png" alt="" />
+    </div>
+    <div class="middle">@2022 TshirtBazar. All rights reserved.</div>
+    <div class="right">
+      <i class="fa fa-facebook"></i>
+      <i class="fa fa-instagram"></i>
+      <i class="fa fa-twitter"></i>
+      <i class="fa fa-youtube"></i>
+    </div>
+  </div>
+</div>
