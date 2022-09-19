@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 export class ProductDetailsComponent implements OnInit {
 
 
-  config = environment.config;
+  localCurrency = "₹";
 
   constructor(
     private route: ActivatedRoute,

@@ -3,22 +3,20 @@ import { Router } from '@angular/router';
 
 import { ProductsService } from 'src/app/core/service/productservice.service';
 import { Product } from 'src/app/shared/store-utilities/interfaces/product.interface';
-import { environment } from 'src/environments/environment';
 
 @Component({
   // selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
 })
-export class ProductComponent implements OnInit {
-  config = environment.config;
+export class ProductComponent {
 
   constructor(
     private productService: ProductsService,
     private router: Router
   ) {}
-
-  ngOnInit(): void {}
+  
+  localCurrency = "₹";
 
   @Input()
   item!: Product;

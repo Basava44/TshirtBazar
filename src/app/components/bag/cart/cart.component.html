@@ -47,15 +47,15 @@
           <div class="remove" (click)="removeFromCart(product)">Remove</div>
         </div>
         <div class="price" *ngIf="product.discountedPrice === 0">
-          {{ product.actualPrice | currency:config.localCurrency }}
+          {{ product.actualPrice | currency:localCurrency }}
         </div>
         <div class="price" *ngIf="product.discountedPrice > 0">
-          {{ product.discountedPrice | currency:config.localCurrency }}
+          {{ product.discountedPrice | currency:localCurrency }}
         </div>
       </mat-card>
       <div class="totalCost">
         <span class="label">Total Amount: </span>
-        <span class="action">{{ totalAmount | currency:config.localCurrency }}</span>
+        <span class="action">{{ totalAmount | currency:localCurrency }}</span>
       </div>
     </mat-card>
   </div>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-footer',
@@ -8,12 +7,19 @@ import { environment } from 'src/environments/environment';
 })
 export class FooterComponent {
   constructor() {}
-
-  config = environment.config;
+  shopAddress = [
+    "Tshirt Bazar Internet Private Limited,",
+    "Buildings Alyssa, Begonia &",
+    "Clove Embassy Tech Village,",
+    "Outer Ring Road, Devarabeesanahalli Village,",
+    "Bengaluru, 560103,",
+    "Karnataka, India"
+  ]
 
   about = ['Contact Us', 'About Us', 'Careers', 'Tshirt Bazar Stories', 'Press'];
   help = ['Payments', 'Shipping', 'Cancellation & Returns', 'FAQ'];
   social = ['Facebook', 'Twitter', 'YouTube'];
-  mailus = this.config.address;
-  address = this.config.address;
+  mailus = this.shopAddress;
+  address = this.shopAddress;
+  countryName = "India";
 }

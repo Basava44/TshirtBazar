@@ -25,7 +25,7 @@
           routerLink="/bag/cart"
         >
           <span class="material-icons">shopping_cart</span>
-          <span class="amount">{{ cost | currency:config.localCurrency }}</span>
+          <span class="amount">{{ cost | currency:localCurrency }}</span>
           <span class="items"
             >{{ cartItems }} {{ cartItems > 1 ? "items" : "item" }}</span
           >
@@ -57,7 +57,7 @@
     <div class="navbar__label">
       <div class="logo" routerLink="/dashboard">
         <img
-          [src]="config.logoImgPath"
+          [src]="logoImgPath"
           title="Tshirt Bazar"
         />
       </div>

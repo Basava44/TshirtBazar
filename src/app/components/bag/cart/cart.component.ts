@@ -4,7 +4,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ProductsService } from 'src/app/core/service/productservice.service';
 import { Product } from 'src/app/shared/store-utilities/interfaces/product.interface';
-import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class CartComponent implements OnInit {
 
-  config = environment.config;
+  localCurrency = "₹";
 
   constructor(
     private productService: ProductsService,
@@ -68,7 +67,7 @@ export class CartComponent implements OnInit {
     if (this.confirmSize()) {
       console.log(this.shippingForm.value);
       Swal.fire({
-        title: `Your Order has Been Placed\n Pay ${this.config.localCurrency}${this.totalAmount}.00 While Delivery`,
+        title: `Your Order has Been Placed\n Pay ${this.localCurrency}${this.totalAmount}.00 While Delivery`,
         icon: 'success',
         confirmButtonText: 'Go to Mainpage',
         showCloseButton: true,

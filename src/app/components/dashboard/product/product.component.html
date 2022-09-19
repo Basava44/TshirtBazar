@@ -4,12 +4,12 @@
   <p class="productName">{{ item.name }} {{ item.type }}</p>
   <p class="price">
     <span class="currency discountedPrice" *ngIf="item.discountedPrice">{{
-      item.discountedPrice | currency:config.localCurrency
+      item.discountedPrice | currency:localCurrency
     }}</span>
     <span
       class="currency actualPrice"
       [ngClass]="item.discountedPrice ? 'discount' : ''"
-      >{{ item.actualPrice | currency:config.localCurrency }}</span
+      >{{ item.actualPrice | currency:localCurrency }}</span
     >
   </p>
   <button

@@ -26,12 +26,12 @@
     <hr />
     <div class="price">
       <span class="currency discountedPrice" *ngIf="product.discountedPrice">{{
-        product.discountedPrice | currency:config.localCurrency
+        product.discountedPrice | currency:localCurrency
       }}</span>
       <span
         class="currency actualPrice"
         [ngClass]="product.discountedPrice ? 'discount' : ''"
-        >{{ product.actualPrice | currency:config.localCurrency }}</span
+        >{{ product.actualPrice | currency:localCurrency }}</span
       >
       <span class="offer" *ngIf="getDiscount(product)">
         ({{ getDiscount(product) }}% off)

@@ -6,13 +6,10 @@ import { environment } from 'src/environments/environment';
   templateUrl: './bag.component.html',
   styleUrls: ['./bag.component.scss']
 })
-export class BagComponent implements OnInit {
+export class BagComponent {
 
   constructor() { }
 
-  config = environment.config;
-
-  ngOnInit(): void {
-  }
+  imagePath = '../../../../assets/images/Logo-India(2x).png';
 
 }
