@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from 'src/app/core/service/productservice.service';
 import { Product } from 'src/app/shared/store-utilities/interfaces/product.interface';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-wishlist',
@@ -10,7 +9,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./wishlist.component.scss'],
 })
 export class WishlistComponent implements OnInit {
-  config = environment.config;
 
   constructor(
     private productService: ProductsService,
@@ -18,6 +16,7 @@ export class WishlistComponent implements OnInit {
   ) {}
 
   products: Product[] = [];
+  localCurrency = '₹';
 
   ngOnInit(): void {
     this.productService.wishlistItems.subscribe((data) => {

@@ -10,6 +10,6 @@ export class BagComponent {
 
   constructor() { }
 
-  imagePath = '../../../../assets/images/Logo-India(2x).png';
+  imagePath = 'assets/images/Logo-India(2x).png';
 
 }

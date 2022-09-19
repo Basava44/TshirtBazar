@@ -1,5 +1,5 @@
 <div class="noItems" *ngIf="products.length === 0">
-  <img src="../../../../assets/images/empty-cart.png" alt="" />
+  <img src="assets/images/empty-cart.png" alt="" />
   <h1>No Items, Have a look into Products Page</h1>
   <span class="link" routerLink="/dashboard">Dashboard</span>
   <span class="link" routerLink="/bag/cart">Cart</span>
@@ -11,12 +11,12 @@
     <p class="productName">{{ item.name }} {{ item.type }}</p>
     <p class="price">
       <span class="currency discountedPrice" *ngIf="item.discountedPrice">{{
-        item.discountedPrice | currency:config.localCurrency
+        item.discountedPrice | currency:localCurrency
       }}</span>
       <span
         class="currency actualPrice"
         [ngClass]="item.discountedPrice ? 'discount' : ''"
-        >{{ item.actualPrice | currency:config.localCurrency }}</span
+        >{{ item.actualPrice | currency:localCurrency }}</span
       >
     </p>
     <button mat-stroked-button class="cart" *ngIf="!item.cart" (click)="addToCart(item.id)">
