@@ -34,8 +34,6 @@ export class RegisterComponent implements OnInit {
       email: this.signUpForm.value.email,
       password: this.signUpForm.value.password,
     };
-
-    console.log(data);
     this.userService.signIn();
     window.location.reload();
   }

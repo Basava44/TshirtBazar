@@ -25,7 +25,6 @@ export class QueryComponent implements OnInit {
   }
 
   submitQuery() {
-    console.log(this.queryForm.value);
     Swal.fire({
       title: 'Your Query has been Submitted',
       icon: 'success',

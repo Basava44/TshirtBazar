@@ -118,7 +118,6 @@ export class LoginComponent {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
-    console.log(data);
     this.userService.signIn();
     window.location.reload();
   }

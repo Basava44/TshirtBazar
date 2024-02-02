@@ -12,7 +12,6 @@ export class MenSectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.products.subscribe((data) => {
-      console.log(data);
       this.products = [];
       data.map((item: Product) => {
         if (item.idealFor === ('M' || 'B')) this.products.push(item);
