@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,10 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private titleService: Title) {}
-
+  constructor(private titleService: Title, private router: Router) {}
 
   ngOnInit(): void {
     this.titleService.setTitle('Tshirt Bazar');
+    this.router.navigate(['/']);
   }
 }
