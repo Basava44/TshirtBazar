@@ -12,6 +12,5 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('Tshirt Bazar');
-    this.router.navigate(['/']);
   }
 }

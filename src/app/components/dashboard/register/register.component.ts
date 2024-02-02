@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/service/user.service';
 import { User } from 'src/app/shared/store-utilities/interfaces/user.interface';
 
@@ -9,7 +10,11 @@ import { User } from 'src/app/shared/store-utilities/interfaces/user.interface';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) {
     this.createForm();
   }
 
@@ -32,6 +37,6 @@ export class RegisterComponent implements OnInit {
 
     console.log(data);
     this.userService.signIn();
-    window.location.reload();
+    this.router.navigate(['/']);
   }
 }

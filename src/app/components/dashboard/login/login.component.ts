@@ -17,7 +17,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     private store: Store,
     private snackbar: MatSnackBar,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {
     this.createForm();
   }
@@ -119,7 +120,6 @@ export class LoginComponent {
     };
     console.log(data);
     this.userService.signIn();
-    window.location.reload();
-
+    this.router.navigate(['/']);
   }
 }
