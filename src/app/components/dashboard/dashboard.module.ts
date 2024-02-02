@@ -85,13 +85,13 @@ import { FilterPipe } from 'src/app/core/pipes/filter.pipe';
     MatChipsModule,
   ],
   entryComponents: [ProductComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardModule {
-  constructor(injector: Injector) {
-    const element = createCustomElement(ProductComponent, {
-      injector: injector,
-    });
-    customElements.define('individual-product', element);
-  }
+  // constructor(injector: Injector) {
+  //   const element = createCustomElement(ProductComponent, {
+  //     injector: injector,
+  //   });
+  //   customElements.define('individual-product', element);
+  // }
 }

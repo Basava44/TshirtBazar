@@ -3,14 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "serve": "ng serve -o",
-    "prestart": "ts-node ./buildConfig/scripts/something.ts",
+    "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint",
-    "setEnv": "ts-node ./buildConfig/scripts/set-env.ts",
-    "dev": "npm-run-all --parallel \"setEnv -- {@}\" serve --"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -51,6 +47,7 @@
     "@types/node": "^12.20.41",
     "@typescript-eslint/eslint-plugin": "4.28.2",
     "@typescript-eslint/parser": "4.28.2",
+    "angular-cli-ghpages": "^2.0.0-beta.2",
     "eslint": "^7.26.0",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",

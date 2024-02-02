@@ -7,17 +7,14 @@ import { Product } from 'src/app/shared/store-utilities/interfaces/product.inter
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 
-import { environment } from '../../../../environments/environment';
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-
   localCurrency = '₹';
-  logoImgPath = 'assets/images/Logo-India(2x).png'
+  logoImgPath = 'assets/images/Logo-India(2x).png';
 
   constructor(
     public dialog: MatDialog,

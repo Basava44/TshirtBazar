@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/core/service/productservice.service';
 import { Product } from 'src/app/shared/store-utilities/interfaces/product.interface';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-product-details',
@@ -10,9 +9,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent implements OnInit {
-
-
-  localCurrency = "₹";
+  localCurrency = '₹';
 
   constructor(
     private route: ActivatedRoute,

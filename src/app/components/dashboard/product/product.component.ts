@@ -5,36 +5,20 @@ import { ProductsService } from 'src/app/core/service/productservice.service';
 import { Product } from 'src/app/shared/store-utilities/interfaces/product.interface';
 
 @Component({
-  // selector: 'app-product',
+  selector: 'individual-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent {
-
   constructor(
     private productService: ProductsService,
     private router: Router
   ) {}
-  
-  localCurrency = "₹";
+
+  localCurrency = '₹';
 
   @Input()
   item!: Product;
-  // = {
-  //   id: 0,
-  //   name: '',
-  //   type: '',
-  //   actualPrice: 0,
-  //   discountedPrice: 0,
-  //   img: '',
-  //   size: [],
-  //   selectedSize: '',
-  //   wishlist: false,
-  //   cart: false,
-  //   rating: 0,
-  //   idealFor: ''
-  // };
-  
 
   getDiscount(item: Product): number {
     return item.discountedPrice > 0

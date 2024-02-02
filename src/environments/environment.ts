@@ -3,17 +3,15 @@
       production: false,
       envName: 'local',
       config: {
-  "title": "Tshirt Bazar",
-  "localCurrency": "₹",
-  "countryName": "India",
-  "logoImgPath": "../../../../assets/images/Logo-India(2x).png",
+  "title": "Tshirt Store",
+  "localCurrency": "$",
+  "countryName": "USA",
+  "logoImgPath": "../../../../assets/images/Logo-USA(2x).png",
   "address":[
-    "Tshirt Bazar Internet Private Limited,",
+    "Tshirt Store Internet Private Limited,",
     "Buildings Alyssa, Begonia &",
-    "Clove Embassy Tech Village,",
-    "Outer Ring Road, Devarabeesanahalli Village,",
-    "Bengaluru, 560103,",
-    "Karnataka, India"
+    "Clove Embassy Tech Park,",
+    "California, USA"
   ]
 }
 
