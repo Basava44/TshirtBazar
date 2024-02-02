@@ -37,6 +37,6 @@ export class RegisterComponent implements OnInit {
 
     console.log(data);
     this.userService.signIn();
-    this.router.navigate(['/']);
+    window.location.reload();
   }
 }

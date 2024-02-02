@@ -120,6 +120,6 @@ export class LoginComponent {
     };
     console.log(data);
     this.userService.signIn();
-    this.router.navigate(['/']);
+    window.location.reload();
   }
 }
