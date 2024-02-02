@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "/TshirtHub/",
+            "baseHref": "/TshirtHub",
             "outputPath": "dist/Shopping",
             "index": "src/index.html",
             "main": "src/main.ts",
