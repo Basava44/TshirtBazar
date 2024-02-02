@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "opensans-regular";
+  src: url("./fonts/OpenSans-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "opensans-medium";
+  src: url("./fonts/OpenSans-Medium.ttf");
+}
+
+@font-face {
+  font-family: "opensans-bold";
+  src: url("./fonts/OpenSans-Bold.ttf");
+}
+
+$font-family: "opensans-regular", Arial, sans-serif;
+
+$body-background: #f5f5f5;
+
+$primary-color: #253469;
+
+$secondary-color: #253469d7;
+
+$discount-color: #e01a1b;
+
+$buy-button-color: #2aca9a;
+
+$regular-white: #ffffff;
+
+$light-pink: #e85c5d;
+
+$hover-link:#0000ff;
+
+$box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+$base-font-size: 14px;
+$base-font-size-secondary: 12px;
+$base-title-size: 24px;
+$base-subtitle-size: 16px;
