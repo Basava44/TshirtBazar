@@ -19,6 +19,7 @@ export class UserStateModel {
   defaults: {
     users: [
       { email: 'karibasaveshwara.tg@moonraft.com', password: 'basava@123' },
+      { email: 'vanishwari.venkatesan@moonraft.com', password: 'vani@123' },
     ],
     loggedIn: false,
     cart: [],
