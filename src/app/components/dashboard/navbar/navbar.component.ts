@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.loggedIn = this.userService.userLoggedIn();
     this.productService.cartItems.subscribe((data) => {
-      this.cost = -100;
+      this.cost = 0;
       data.map((item: Product) => {
         this.cost +=
           item.discountedPrice > 0 ? item.discountedPrice : item.actualPrice;
