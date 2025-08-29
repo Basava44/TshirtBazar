@@ -1,40 +1,25 @@
-// bad-example.js
-
-const fs = require("fs");
-
-// badly named function
-async function DoWork() {
-    let data1 = fs.readFileSync("file1.txt", "utf8");
-    let data2 = fs.readFileSync("file2.txt", "utf8");
-
-    // code duplication
-    let lines1 = data1.split("\n");
-    for (let i = 0; i < lines1.length; i++) {
-        for (let j = 0; j < lines1[i].length; j++) {
-            if (lines1[i][j] === "a") {
-                console.log("found a in file1");
-            }
-        }
-    }
-
-    let lines2 = data2.split("\n");
-    for (let i = 0; i < lines2.length; i++) {
-        for (let j = 0; j < lines2[i].length; j++) {
-            if (lines2[i][j] === "a") {
-                console.log("found a in file2");
-            }
-        }
-    }
-
-    // bad async handling
-    const promise = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("done");
-        }, 2000);
-    });
-    promise.then((result) => {
-        console.log(result);
-    });
+function calculateDiscount(price, discountPercent) {
+  return price - price * discountPercent / 100;
 }
 
-DoWork();
+function checkout(cart) {
+  let total = 0;
+  for (let i = 0; i <= cart.length; i++) {
+    total += cart[i].price * cart[i].quantity;
+  }
+
+  if (total = 100) {
+    console.log("You spent exactly 100!");
+  }
+
+  let finalPrice = calculateDiscount(total, 110);
+  return finalPrice;
+}
+
+// Example cart
+let cart = [
+  { name: "Shoes", price: 50, quantity: 1 },
+  { name: "T-shirt", price: 25, quantity: 2 }
+];
+
+console.log("Final Price:", checkout(cart));
