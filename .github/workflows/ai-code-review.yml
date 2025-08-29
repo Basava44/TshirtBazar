@@ -75,7 +75,7 @@ jobs:
       id: ai-review
       run: |
         # Install required dependencies
-        npm install openai
+        npm install openai --force
 
         # Create the AI review script
         cat << 'EOF' > ai_reviewer.js
