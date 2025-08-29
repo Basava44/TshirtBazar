@@ -13,18 +13,10 @@ jobs:
 
       - name: Get PR Diff
         id: get-diff
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const prNumber = context.payload.pull_request.number;
-            const { data } = await github.request("GET /repos/{owner}/{repo}/pulls/{pull_number}", {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: prNumber,
-              headers: { accept: "application/vnd.github.v3.diff" }
-            });
-            return data;
-          result-encoding: string
+        run: |
+          echo "diff<<EOF" >> $GITHUB_OUTPUT
+          git diff origin/main...HEAD >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Get Commit Messages
         id: get-commits
@@ -45,7 +37,7 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          DIFF="${{ steps.get-diff.outputs.result }}"
+          DIFF="${{ steps.get-diff.outputs.diff }}"
           COMMITS="${{ steps.get-commits.outputs.result }}"
 
           RESPONSE=$(curl -s https://api.openai.com/v1/chat/completions \
@@ -55,7 +47,7 @@ jobs:
               \"model\": \"gpt-4o-mini\",
               \"messages\": [
                 {\"role\": \"system\", \"content\": \"You are a senior software engineer performing CI/CD code review.\"},
-                {\"role\": \"user\", \"content\": \"Review the following code diff and commit messages. Provide feedback under three structured sections: \\n\\n1. Code Quality (duplication, refactoring opportunities, nested loops/conditionals, long functions/classes, naming consistency, async handling). \\n2. Testing (unit test coverage, edge cases). \\n3. Commit Messages (clarity, best practices). \\n\\nCODE DIFF:\\n$DIFF \\n\\nCOMMIT MESSAGES:\\n$COMMITS\"}
+                {\"role\": \"user\", \"content\": \"Review the following code diff and commit messages. Provide feedback under three structured sections: 1. Code Quality (duplication, refactoring opportunities, nested loops/conditionals, long functions/classes, naming consistency, async handling). 2. Testing (unit test coverage, edge cases). 3. Commit Messages (clarity, best practices).\\n\\nCODE DIFF:\\n$DIFF\\n\\nCOMMIT MESSAGES:\\n$COMMITS\"}
               ]
             }" | jq -r '.choices[0].message.content')
 
