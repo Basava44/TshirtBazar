@@ -1,0 +1,48 @@
+name: AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  ai-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get PR Diff
+        id: get-diff
+        run: |
+          git fetch origin ${{ github.base_ref }}
+          git diff origin/${{ github.base_ref }}... > changes.diff
+          echo "diff<<EOF" >> $GITHUB_OUTPUT
+          cat changes.diff >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: AI Code Review
+        id: ai-review
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          RESPONSE=$(curl -s https://api.openai.com/v1/chat/completions \
+            -H "Authorization: Bearer $OPENAI_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"model\": \"gpt-4o-mini\",
+              \"messages\": [
+                {\"role\": \"system\", \"content\": \"You are a senior software engineer. Review the code diff for bugs, security issues, performance improvements, and readability suggestions. Give feedback in bullet points.\"},
+                {\"role\": \"user\", \"content\": \"${{ steps.get-diff.outputs.diff }}\"}
+              ]
+            }" | jq -r '.choices[0].message.content')
+
+          echo "response<<EOF" >> $GITHUB_OUTPUT
+          echo "$RESPONSE" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Post AI Review as PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            🤖 **AI Code Review Suggestions**
+            ${{ steps.ai-review.outputs.response }}
