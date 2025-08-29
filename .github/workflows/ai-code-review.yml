@@ -154,7 +154,6 @@ jobs:
             ${aiReview}
 
             ---
-            *This review was generated automatically by AI. Please use it as a supplement to human code review.*`;
 
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
