@@ -151,9 +151,7 @@ jobs:
 
             const comment = `## 🤖 AI Code Review
 
-            ${aiReview}
-
-            ---
+            ${aiReview}`;
 
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
