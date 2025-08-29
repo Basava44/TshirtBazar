@@ -10,13 +10,20 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0   # 👈 ensures full history so we can diff properly
+
+      - name: Fetch main branch
+        run: git fetch origin main
 
       - name: Get PR Diff
         id: get-diff
         run: |
-          echo "diff<<EOF" >> $GITHUB_OUTPUT
-          git diff origin/main...HEAD >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          DIFF=$(git diff origin/main...HEAD)
+          DIFF="${DIFF//'%'/'%25'}"
+          DIFF="${DIFF//$'\n'/'%0A'}"
+          DIFF="${DIFF//$'\r'/'%0D'}"
+          echo "diff=$DIFF" >> $GITHUB_OUTPUT
 
       - name: Get Commit Messages
         id: get-commits
@@ -51,9 +58,10 @@ jobs:
               ]
             }" | jq -r '.choices[0].message.content')
 
-          echo "response<<EOF" >> $GITHUB_OUTPUT
-          echo "$RESPONSE" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          RESPONSE="${RESPONSE//'%'/'%25'}"
+          RESPONSE="${RESPONSE//$'\n'/'%0A'}"
+          RESPONSE="${RESPONSE//$'\r'/'%0D'}"
+          echo "response=$RESPONSE" >> $GITHUB_OUTPUT
 
       - name: Post AI Review as PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
